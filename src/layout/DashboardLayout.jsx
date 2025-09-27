@@ -3,13 +3,17 @@ import { Link, Outlet } from 'react-router';
 import DashboardNav from '../pages/Dashboard/DashboardNav/DashboardNav';
 import { FaCcAmazonPay, FaCloudUploadAlt, FaHome, FaLuggageCart, FaUserAlt, FaUsers } from 'react-icons/fa';
 import { HiOutlineLogout } from 'react-icons/hi';
-import { MdOutlinePayment, MdProductionQuantityLimits } from 'react-icons/md';
+import { MdCategory, MdOutlinePayment, MdPendingActions, MdProductionQuantityLimits } from 'react-icons/md';
 import { GiSellCard } from 'react-icons/gi';
+import { useState } from 'react';
 
 const DashboardLayout = () => {
+
+    const [open, setOpen] = useState(false);
+
     return (
         <div className='flex justify-between w-full'>
-            <div className='w-[20%] h-[100vh] bg-gray-700 flex flex-col justify-between sticky top-0 left-0 z-50'>
+            <nav className="lg:w-[20%] hidden h-[100vh] bg-gray-700 lg:flex flex-col justify-between sticky top-0 left-0 z-50">
                 <div className='h-[10vh] flex items-center px-[20px] border-b-[1px] border-gray-400'>
                     <Link to="/">
                         <img className='lg:h-[40px] md:h-[35px] h-[30px]' src={logo} alt="" />
@@ -52,12 +56,6 @@ const DashboardLayout = () => {
                             All User
                         </span>
                     </Link>
-                    <Link className='flex items-center gap-[20px] text-[#fff]' to="user">
-                        <FaUserAlt />
-                        <span>
-                            User
-                        </span>
-                    </Link>
                     <Link className='flex items-center gap-[20px] text-[#fff]' to="seller">
                         <GiSellCard />
                         <span>
@@ -71,7 +69,7 @@ const DashboardLayout = () => {
                         </span>
                     </Link>
                     <Link className='flex items-center gap-[20px] text-[#fff]' to="allCategoris">
-                        <FaCloudUploadAlt />
+                        <MdCategory />
                         <span>
                             All Categoris
                         </span>
@@ -80,6 +78,12 @@ const DashboardLayout = () => {
                         <FaCloudUploadAlt />
                         <span>
                             Upload Product
+                        </span>
+                    </Link>
+                    <Link className='flex items-center gap-[20px] text-[#fff]' to="pendingSeler">
+                        <MdPendingActions />
+                        <span>
+                            Pending Seler
                         </span>
                     </Link>
                 </div>
@@ -91,9 +95,9 @@ const DashboardLayout = () => {
                         <HiOutlineLogout />
                     </button>
                 </div>
-            </div>
-            <div className='w-[80%]'>
-                <DashboardNav />
+            </nav>
+            <div className='lg:w-[80%] w-full'>
+                <DashboardNav setOpen={setOpen} open={open} />
                 <Outlet />
             </div>
         </div>

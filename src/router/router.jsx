@@ -13,10 +13,11 @@ import Order from "../pages/Dashboard/Order/Order";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import BannerUpload from "../pages/Dashboard/BannerUpload/BannerUpload";
 import AllUser from "../pages/Dashboard/AllUser/AllUser";
-import User from "../pages/Dashboard/User/User";
 import Seller from "../pages/Dashboard/Seller/Seller";
 import PostCategoris from "../pages/Dashboard/PostCategoris/PostCategoris";
 import AllCategoris from "../pages/Dashboard/AllCategoris/AllCategoris";
+import BeASeller from "../pages/BeASeller/BeASeller";
+import PendingSellers from "../pages/Dashboard/PendingSeler/PendingSeler";
 
 export const router = createBrowserRouter([
     {
@@ -38,6 +39,9 @@ export const router = createBrowserRouter([
             }, {
                 path: "/cart",
                 Component: Carts
+            }, {
+                path: "/beASeller",
+                Component: BeASeller
             }
         ]
     },
@@ -67,9 +71,6 @@ export const router = createBrowserRouter([
                 path: "allUser",
                 Component: AllUser
             }, {
-                path: "user",
-                Component: User
-            }, {
                 path: "Seller",
                 Component: Seller
             }, {
@@ -78,6 +79,9 @@ export const router = createBrowserRouter([
             }, {
                 path: "allCategoris",
                 Component: AllCategoris
+            }, {
+                path: "pendingSeler",
+                Component: PendingSellers
             }
         ]
     }

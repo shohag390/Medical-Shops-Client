@@ -1,44 +1,26 @@
 const sellers = [
-    {
-        id: 1,
-        name: "John Doe",
-        email: "john@sellers.com",
-        shop: "HealthPlus Pharmacy",
-        status: "Active"
-    },
-    {
-        id: 2,
-        name: "Sarah Smith",
-        email: "sarah@sellers.com",
-        shop: "MediZone Store",
-        status: "Active"
-    },
-    {
-        id: 3,
-        name: "David Lee",
-        email: "david@sellers.com",
-        shop: "LifeCare Hub",
-        status: "Active"
-    },
+    { id: 1, name: "John Doe", email: "john@sellers.com", shop: "HealthPlus Pharmacy", status: "Active" },
+    { id: 2, name: "Sarah Smith", email: "sarah@sellers.com", shop: "MediZone Store", status: "Pending" },
+    { id: 3, name: "David Lee", email: "david@sellers.com", shop: "LifeCare Hub", status: "Pending" },
 ];
 
-const Seller = () => {
+const PendingSellers = () => {
 
-    const handleEdit = (id) => {
-        console.log("Edit Seller with ID:", id);
+    const handleApprove = (id) => {
+        console.log("Approve Seller with ID:", id);
+        // Call API or update state
     };
 
     const handleDelete = (id) => {
         console.log("Delete Seller with ID:", id);
+        // Call API or update state
     };
 
-    const handleView = (id) => {
-        console.log("View Seller Profile with ID:", id);
-    };
+    const pendingSellers = sellers.filter(seller => seller.status === "Pending");
 
     return (
         <div className='lg:px-[20px] md:px-[50px] px-[20px] py-[20px]'>
-            <h4 className='text-[18px] font-medium pb-[12px]'>All Sellers</h4>
+            <h4 className='text-[18px] font-medium pb-[12px]'>Pending Sellers</h4>
 
             <div className="overflow-x-auto bg-white shadow-md rounded-lg">
                 <table className="w-full">
@@ -54,23 +36,19 @@ const Seller = () => {
                     </thead>
 
                     <tbody>
-                        {sellers.map((seller) => (
+                        {pendingSellers.map((seller, index) => (
                             <tr key={seller.id} className="border-t hover:bg-gray-50">
-                                <td className="py-3 px-4">{seller.id}</td>
+                                <td className="py-3 px-4">{index + 1}</td>
                                 <td className="py-3 px-4 font-medium">{seller.name}</td>
                                 <td className="py-3 px-4">{seller.email}</td>
                                 <td className="py-3 px-4">{seller.shop}</td>
                                 <td className="py-3 px-4">
-                                    <span className={`px-2 py-1 text-xs rounded-full ${seller.status === "Active" ? "bg-green-100 text-green-600" :
-                                        seller.status === "Pending" ? "bg-yellow-100 text-yellow-600" :
-                                            "bg-red-100 text-red-600"
-                                        }`}>
+                                    <span className="px-2 py-1 text-xs bg-yellow-100 text-yellow-600 rounded-full">
                                         {seller.status}
                                     </span>
                                 </td>
                                 <td className="py-3 px-4 text-center flex justify-center gap-3">
-                                    <button onClick={() => handleView(seller.id)} className="text-gray-600 hover:underline">View</button>
-                                    <button onClick={() => handleEdit(seller.id)} className="text-blue-500 hover:underline">Edit</button>
+                                    <button onClick={() => handleApprove(seller.id)} className="text-green-500 hover:underline">Approve</button>
                                     <button onClick={() => handleDelete(seller.id)} className="text-red-500 hover:underline">Delete</button>
                                 </td>
                             </tr>
@@ -83,4 +61,4 @@ const Seller = () => {
     );
 };
 
-export default Seller;
+export default PendingSellers;
