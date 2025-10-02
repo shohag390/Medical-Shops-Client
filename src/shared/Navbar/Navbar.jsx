@@ -7,6 +7,7 @@ import { AiFillInstagram } from 'react-icons/ai';
 import { FaCartShopping } from 'react-icons/fa6';
 import { useEffect, useRef, useState } from 'react';
 import { IoClose, IoMenu } from 'react-icons/io5';
+import useAuth from '../../hooks/useAuth';
 
 
 
@@ -34,17 +35,24 @@ const menu = [
 ]
 
 const Navbar = () => {
-    const [user, setUser] = useState(true);
     const [open, setOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [selected, setSelected] = useState("EN");
     const [openProfile, setOpenProfile] = useState(false);
     const menuRef = useRef(null);
+    const { user, logOut } = useAuth();
 
     const handleSelect = (lang) => {
         setSelected(lang);
         setOpen(false);
     };
+
+    const handleLogOut = () => {
+        logOut()
+            .then(result => { console.log(result) })
+            .catch(error => console.log(error))
+    }
+
     // Outside click handler
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -185,7 +193,7 @@ const Navbar = () => {
                                 >
                                     <img
                                         className="h-[40px] w-[40px] rounded-full border border-gray-200"
-                                        src={profilePic}
+                                        src={user?.photoURL}
                                         alt="profile"
                                     />
                                 </button>
@@ -209,7 +217,7 @@ const Navbar = () => {
                                             </Link>
                                             <button
                                                 onClick={() => {
-                                                    handleLogout();
+                                                    handleLogOut();
                                                     setOpenProfile(false);
                                                 }}
                                                 className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"

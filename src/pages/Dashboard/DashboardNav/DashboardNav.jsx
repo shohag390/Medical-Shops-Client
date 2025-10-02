@@ -6,10 +6,10 @@ import { Link } from 'react-router';
 import { MdCategory, MdOutlinePayment, MdPendingActions, MdProductionQuantityLimits } from 'react-icons/md';
 import { GiSellCard } from 'react-icons/gi';
 import { HiOutlineLogout } from 'react-icons/hi';
+import useAuth from '../../../hooks/useAuth';
 
 const DashboardNav = ({ setOpen, open }) => {
-    console.log(open);
-
+    const { user } = useAuth();
 
     return (
         <div className='h-[10vh] flex items-center justify-between sticky top-0 bg-gray-100 border-b-[1px] border-gray-200 lg:px-[20px] md:px-[50px] px-[20px]'>
@@ -21,7 +21,7 @@ const DashboardNav = ({ setOpen, open }) => {
             <div className='flex items-center gap-[20px]'>
                 <img
                     className="h-[40px] w-[40px] rounded-full border border-gray-200"
-                    src={profilePic}
+                    src={user?.photoURL}
                     alt="profile"
                 />
                 <button className='lg:hidden' onClick={() => setOpen(!open)}>

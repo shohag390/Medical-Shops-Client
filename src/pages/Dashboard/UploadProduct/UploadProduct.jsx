@@ -53,10 +53,13 @@ const UploadProduct = () => {
                     {/*  Brand */}
                     <div className="lg:w-[50%] w-full">
                         <label className="block mb-1 font-medium">Brand</label>
-                        <select {...register("brand", { required: "Brand is required" })} className="w-full border p-2 rounded-md">
-                            <option value="">Select Brand</option>
-                            {brands.map((b, i) => <option key={i} value={b}>{b}</option>)}
-                        </select>
+                        <input
+                            placeholder="Enter Brand Name"
+                            type="text"
+                            step="0.01"
+                            {...register("brand", { required: "Brand is required" })}
+                            className="w-full border p-2 rounded-md"
+                        />
                         {errors.brand && <p className="text-red-500 text-sm">{errors.brand.message}</p>}
                     </div>
 

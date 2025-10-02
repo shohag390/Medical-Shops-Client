@@ -6,17 +6,25 @@ import { HiOutlineLogout } from 'react-icons/hi';
 import { MdCategory, MdOutlinePayment, MdPendingActions, MdProductionQuantityLimits } from 'react-icons/md';
 import { GiSellCard } from 'react-icons/gi';
 import { useState } from 'react';
+import useAuth from '../hooks/useAuth';
 
 const DashboardLayout = () => {
-
     const [open, setOpen] = useState(false);
+    const { logOut } = useAuth();
+
+    const handleLogOut = () => {
+        logOut()
+            .then(result => { console.log(result) })
+            .catch(error => console.log(error))
+    }
+
 
     return (
         <div className='flex justify-between w-full'>
             <nav className="lg:w-[20%] hidden h-[100vh] bg-gray-700 lg:flex flex-col justify-between sticky top-0 left-0 z-50">
                 <div className='h-[10vh] flex items-center px-[20px] border-b-[1px] border-gray-400'>
                     <Link to="/">
-                        <img className='lg:h-[40px] md:h-[35px] h-[30px]' src={logo} alt="" />
+                        <img className='lg:h-[40px] md:h-[35px] h-[30px]' src={logo} alt="profile" />
                     </Link>
                 </div>
                 <div className='h-[80vh] flex flex-col gap-[10px] p-[20px]'>
@@ -88,7 +96,7 @@ const DashboardLayout = () => {
                     </Link>
                 </div>
                 <div className='h-[10vh] flex items-center px-[20px] border-t-[1px] border-gray-400'>
-                    <button className='flex items-center justify-between w-full text-[#fff] font-medium'>
+                    <button onClick={() => handleLogOut()} className='flex items-center justify-between w-full text-[#fff] font-medium'>
                         <span>
                             Logout
                         </span>
