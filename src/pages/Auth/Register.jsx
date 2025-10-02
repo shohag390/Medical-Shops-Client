@@ -25,8 +25,6 @@ const Register = () => {
             const userInfo = {
                 email: data.email,
                 role: "user",
-                displayName: data.name,
-                photoURL: profilePic,
                 created_at: new Date().toISOString(),
                 last_log_in: new Date().toISOString(),
             };

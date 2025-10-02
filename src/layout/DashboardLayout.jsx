@@ -7,16 +7,45 @@ import { MdCategory, MdOutlinePayment, MdPendingActions, MdProductionQuantityLim
 import { GiSellCard } from 'react-icons/gi';
 import { useState } from 'react';
 import useAuth from '../hooks/useAuth';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const DashboardLayout = () => {
     const [open, setOpen] = useState(false);
     const { logOut } = useAuth();
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
-        logOut()
-            .then(result => { console.log(result) })
-            .catch(error => console.log(error))
-    }
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will be logged out!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, Logout',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                logOut()
+                    .then(() => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Logged Out Successfully',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                        navigate('/login');
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Logout Failed',
+                            text: error.message
+                        });
+                    });
+            }
+        });
+    };
 
 
     return (
@@ -96,7 +125,7 @@ const DashboardLayout = () => {
                     </Link>
                 </div>
                 <div className='h-[10vh] flex items-center px-[20px] border-t-[1px] border-gray-400'>
-                    <button onClick={() => handleLogOut()} className='flex items-center justify-between w-full text-[#fff] font-medium'>
+                    <button onClick={() => handleLogOut()} className='flex items-center justify-between w-full text-[#fff] font-medium cursor-pointer'>
                         <span>
                             Logout
                         </span>
