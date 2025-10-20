@@ -68,7 +68,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className='lg:h-[14vh] md:h-[12vh] h-[11vh] w-full container mx-auto sticky top-0 left-0 z-50 bg-[#fff]'>
+        <header className='lg:h-[14vh] md:h-[12vh] h-[11vh] w-full sticky top-0 left-0 z-50 bg-[#fff]'>
             <div className='bg-[#076cec] lg:h-[5vh] h-[4vh] flex items-center justify-between lg:px-[100px] md:px-[50px] px-[20px]'>
                 <div className='flex items-center gap-[20px] text-[#fff]'>
                     <div className='md:flex md:items-center gap-[8px] hidden'>

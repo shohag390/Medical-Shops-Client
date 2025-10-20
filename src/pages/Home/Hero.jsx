@@ -26,7 +26,7 @@ const slides = [
 
 const Hero = () => {
     return (
-        <div className="lg:px-[100px] md:px-[50px] px-[20px] lg:h-[86vh] md:h-[88vh] h-full hero container mx-auto">
+        <div className="lg:px-[100px] md:px-[50px] px-[20px] lg:h-[86vh] md:h-[88vh] h-full hero">
             <Swiper
                 modules={[Autoplay, Pagination]}
                 autoplay={{ delay: 7000 }}
