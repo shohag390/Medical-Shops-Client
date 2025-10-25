@@ -4,9 +4,3 @@
 @import 'swiper/css/autoplay';
 @import 'swiper/css/effect-fade';
 
-.hero {
-    background-image: linear-gradient(to right, #076aec6e, #076aec70), url("../src/assets/images/hero.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
