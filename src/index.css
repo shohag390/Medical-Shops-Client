@@ -1,6 +1,29 @@
 @import "tailwindcss";
 
-@import 'swiper/css';
-@import 'swiper/css/autoplay';
-@import 'swiper/css/effect-fade';
+@import "swiper/css";
+@import "swiper/css/autoplay";
+@import "swiper/css/effect-fade";
 
+/* === Pagination Dots === */
+.swiper-pagination-bullet {
+  background: #ffffff;
+  opacity: 0.5;
+  width: 16px !important;
+  height: 6px !important;
+  transition: all 0.3s ease;
+  border-radius: 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #2563eb;
+  opacity: 1;
+  width: 20px !important;
+  height: 7px !important;
+}
+
+.PromptTwo {
+  background-image: url("./assets/cms-banner1.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
