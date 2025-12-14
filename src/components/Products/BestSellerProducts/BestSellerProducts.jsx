@@ -93,6 +93,7 @@ const BestSellerProducts = () => {
           spaceBetween={20}
           navigation={true}
           pagination={false}
+          loop={true}
           className="mySwiper"
         >
           {bestSellerProducts?.map((item) => (

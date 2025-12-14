@@ -92,6 +92,7 @@ const NewProducts = () => {
           spaceBetween={20}
           navigation={true}
           pagination={false}
+          loop={true}
           className="mySwiper"
         >
           {newproducts?.map((item) => (

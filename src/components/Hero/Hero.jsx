@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import image1 from "../../assets/cms1.webp";
 import image2 from "../../assets/cms2.webp";
 import banner1 from "../../assets/sample-3.webp";

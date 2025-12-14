@@ -30,7 +30,6 @@ const Home = () => {
       <Brands />
       <AboutUs />
       <Blogs />
-      <Newsletter />
     </div>
   );
 };

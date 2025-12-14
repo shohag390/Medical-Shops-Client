@@ -22,7 +22,16 @@
 }
 
 .PromptTwo {
-  background-image: url("./assets/cms-banner1.webp");
+  background-image: linear-gradient(to left, #e4e7ee2f, #e4e7eec2),
+    url("./assets/promotThree.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.newsletter {
+  background-image: linear-gradient(to left, #eaf2ff56, #eaf2ffbb),
+    url("./assets/news.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

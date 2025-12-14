@@ -87,6 +87,7 @@ const Testimonials = () => {
           slidesPerView={4}
           spaceBetween={20}
           navigation={true}
+          loop={true}
           pagination={false}
           className="mySwiper"
         >

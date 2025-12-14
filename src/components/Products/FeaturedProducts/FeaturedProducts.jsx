@@ -92,6 +92,7 @@ const FeaturedProducts = () => {
           slidesPerView={6}
           spaceBetween={20}
           navigation={true}
+          loop={true}
           pagination={false}
           className="mySwiper"
         >

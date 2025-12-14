@@ -4,7 +4,7 @@ import Rating from "react-rating";
 
 const Testimonial = ({ item }) => {
   return (
-    <div className="border-[1px] border-[#e7e7e7] p-[15px] rounded-md">
+    <div className="border-[1px] border-[#e7e7e7] p-[20px] rounded-md">
       <p className="text-[#353232] line-clamp-3 text-justify">
         "{item?.description}"
       </p>

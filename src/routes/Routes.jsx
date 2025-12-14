@@ -10,6 +10,7 @@ import Products from "../components/Products/AllProducts/Products";
 import AboutUs from "../components/AboutUs/AboutUs";
 import Blogs from "../components/Blogs/Blogs";
 import Contacts from "../components/Contacts/Contacts";
+import AuthLayout from "../layout/AuthLayout/AuthLayout";
 
 export const router = createBrowserRouter([
   {
@@ -19,14 +20,6 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
       },
       {
         path: "/be-a-seller",
@@ -55,6 +48,20 @@ export const router = createBrowserRouter([
       {
         path: "/contacts",
         element: <Contacts />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    Component: AuthLayout,
+    children: [
+      {
+        path: "login",
+        Component: Login,
+      },
+      {
+        path: "register",
+        Component: Register,
       },
     ],
   },
